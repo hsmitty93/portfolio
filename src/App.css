@@ -1,11 +1,45 @@
 .app {
-  /* text-align: center; */
+  --primary-color: #46B4BC;
+  --secondary-color: #bc4e46;
 }
 
 .app-bar {
   flex-grow: 1;
-  background-color: aqua !important;
+  background-color: var(--primary-color) !important;
   justify-content: center;
+}
+
+.bg-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 800% 800%;
+  background: linear-gradient(236deg, #46b4bc, #4679bc, #4e46bc, #bc46b4);
+  -webkit-animation: bgAnimation 13s ease infinite;
+  -moz-animation: bgAnimation 13s ease infinite;
+  animation: bgAnimation 13s ease infinite;
+}
+
+@-webkit-keyframes bgAnimation {
+  0%{background-position:0% 15%}
+  50%{background-position:100% 86%}
+  100%{background-position:0% 15%}
+}
+@-moz-keyframes bgAnimation {
+  0%{background-position:0% 15%}
+  50%{background-position:100% 86%}
+  100%{background-position:0% 15%}
+}
+@keyframes bgAnimation {
+  0%{background-position:0% 15%}
+  50%{background-position:100% 86%}
+  100%{background-position:0% 15%}
+}
+
+.bg-intro__title {
+  text-align: center;
+  color: hsl(0 0% 0%);
+  
 }
 
 .app-bar__title {
