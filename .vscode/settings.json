@@ -1,6 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "eslint.packageManager": "yarn",
-    "javascript.format.semicolons": "insert",
-    "typescript.format.semicolons": "insert"
-}
