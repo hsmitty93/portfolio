@@ -1,26 +1,65 @@
 import React from 'react';
-import logo from './logo.svg';
+
+//Material Components
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  useScrollTrigger,
+} from '@material-ui/core';
+
+//Material Icons
+import MenuIcon from '@material-ui/icons/Menu';
+
+// Style
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Props {
+  children?: any;
 }
 
-export default App;
+function ScrollTrigger(props: Props) {
+  const { children } = props;
+  const trigger = useScrollTrigger({
+    threshold: 10
+  });
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 4: 0,
+    style: {
+      height: trigger ? 64 : 90,
+      transition: trigger ? "0.4s ease-in" : "0.4s ease-out",
+    }
+    
+  })
+}
+
+export default function App(props: Props) {
+  return (
+    <div className="app">
+      <ScrollTrigger {...props}>
+        <AppBar className="app-bar">
+          <Toolbar>
+            <Typography variant="h5" className="app-bar__title">
+              Hailey Smith
+            </Typography>
+            <IconButton edge="end" className="app-bar__menu-icon" aria-label="menu">
+              <MenuIcon/>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </ScrollTrigger>
+      <div className="test">
+
+      </div>
+    </div>
+    // header
+    // header__nav
+    // projects
+    // projects__content {3}
+    // about-me
+    // contact
+    // footer
+  );
+}
